@@ -1,0 +1,20 @@
+<section>
+  <form (ngSubmit)="submitForm()">
+    <div class="field">
+      <label>Produto</label>
+      <app-input [name]="nameProduct" [autoFocus]="true"/>
+    </div>
+    <div class="field">
+      <label>Quantidade</label>
+      <app-input-count [quantity]="quantity" [moreQuantity]="handleMoreQuantity" [lessQuantity]="handleLessQuantity" />
+
+    </div>
+      <button
+      type='submit'
+      class="buttonForm"
+      [disabled]='!this.nameProduct.value'
+    >
+      Adicionar
+    </button>
+  </form>
+</section>

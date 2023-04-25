@@ -1,0 +1,11 @@
+<div class="countContainer">
+  <button type="button" (click)="lessQuantity()">-</button>
+  <input
+    value="{{ quantity.value }}"
+    [formControl]="quantity"
+    type="number"
+    pattern="[0-9]*"
+    inputmode="numeric"
+  />
+  <button type="button" (click)="moreQuantity()">+</button>
+</div>

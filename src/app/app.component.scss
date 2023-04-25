@@ -1,0 +1,270 @@
+main {
+  position: relative;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.topPage {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background-color: #f5f5f5;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.productsList {
+  max-width: fit-content;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  padding-bottom: 50px;
+  padding-top: 250px;
+
+  .product {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    margin: 0 20px;
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #a1a1aa;
+
+    @media (max-width: 595px) {
+      flex-direction: column;
+    }
+  }
+
+  .box {
+    border: 1px solid #008030;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 10px;
+      width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .box2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #008030;
+    cursor: pointer;
+  }
+
+  .deleteButton {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  .checked {
+    text-decoration: line-through;
+    font-style: italic;
+    background-color: #d4d4d4;
+    cursor: not-allowed;
+  }
+}
+
+.containerPrice {
+  position: fixed;
+  background-color: #008030;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #ffffff;
+  gap: 5px;
+
+  strong,
+  span {
+    margin: 0 20px;
+  }
+}
+
+.addButton {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 50px;
+
+  z-index: 5;
+
+  .infoButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+
+    margin: auto;
+
+    padding: 20px 50px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    span {
+      margin-bottom: 20px;
+    }
+
+    div {
+      display: flex;
+      gap: 10px;
+
+      button {
+        all: unset;
+        cursor: pointer;
+
+        background-color: #008030;
+        color: #ffffff;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        border-radius: 5px;
+        align-items: center;
+        padding: 5px 10px;
+
+        &:hover {
+          background-color: #006020;
+        }
+
+        &:disabled {
+          background-color: #a1a1aa;
+          cursor: not-allowed;
+        }
+      }
+
+      .buttonVariant {
+        background-color: #ffffff;
+        color: #008030;
+        border: 1px solid #008030;
+
+        &:hover {
+          background-color: #008030;
+          color: #ffffff;
+        }
+
+        &:disabled {
+          background-color: #a1a1aa;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+.countContainer {
+  display: flex;
+
+  button {
+    all: unset;
+    cursor: pointer;
+
+    border: 2px solid #008030;
+    color: #008030;
+    width: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    border-radius: 5px;
+    align-items: center;
+    text-decoration: none !important;
+    font-style: normal !important;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  input {
+    width: fit-content;
+    padding: 5px 10px;
+    margin: 0 5px;
+    max-width: 30px;
+
+    background: transparent;
+    padding: 5px 10px;
+    border: 1px solid #404040;
+    border-radius: 5px;
+
+    &:focus {
+      outline: none;
+      border-color: #008030;
+    }
+
+    &::placeholder {
+      color: #a3a3a3;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+input {
+  background: transparent;
+  padding: 5px 10px;
+  border: 1px solid #404040;
+  border-radius: 5px;
+
+  &:focus {
+    outline: none;
+    border-color: #008030;
+  }
+
+  &::placeholder {
+    color: #a3a3a3;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.noBorder {
+  border: none;
+}
