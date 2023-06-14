@@ -5,6 +5,7 @@ import {
   moneyInputFormat,
   moneyInputFormatToFloat,
 } from 'src/utils/inputMoney';
+import productsMock from '../products-mock.json';
 
 @Component({
   selector: 'app-root',
@@ -33,13 +34,36 @@ export class AppComponent {
       const price =
         products.length > 0
           ? products
-              .map((product: any) =>
-                product.isChecked
-                  ? (moneyInputFormatToFloat(product.price) || 0) *
-                    product.quantity.value
-                  : 0
-              )
-              .reduce((a: any, b: any) => a + b)
+            .map((product: any) =>
+              product.isChecked
+                ? (moneyInputFormatToFloat(product.price) || 0) *
+                product.quantity.value
+                : 0
+            )
+            .reduce((a: any, b: any) => a + b)
+          : 0;
+
+      this.totalPrice = `R$ ${moneyInputFormat(String(price.toFixed(2)))}`;
+    } else {
+      storage.set("@ShopList/products", productsMock);
+      this.productsList = productsMock.map((product: any) => ({
+        ...product,
+        quantity:
+          typeof product.quantity === 'number'
+            ? new FormControl(product.quantity)
+            : new FormControl(product.quantity.value),
+      }));
+
+      const price =
+        productsMock.length > 0
+          ? productsMock
+            .map((product: any) =>
+              product.isChecked
+                ? (moneyInputFormatToFloat(product.price) || 0) *
+                product.quantity.value
+                : 0
+            )
+            .reduce((a: any, b: any) => a + b)
           : 0;
 
       this.totalPrice = `R$ ${moneyInputFormat(String(price.toFixed(2)))}`;
@@ -105,13 +129,13 @@ export class AppComponent {
     const price =
       newProductsList.length > 0
         ? newProductsList
-            .map((product: any) =>
-              product.isChecked
-                ? (moneyInputFormatToFloat(product.price) || 0) *
-                  product.quantity.value
-                : 0
-            )
-            .reduce((a: any, b: any) => a + b)
+          .map((product: any) =>
+            product.isChecked
+              ? (moneyInputFormatToFloat(product.price) || 0) *
+              product.quantity.value
+              : 0
+          )
+          .reduce((a: any, b: any) => a + b)
         : 0;
 
     this.totalPrice = `R$ ${moneyInputFormat(String(price.toFixed(2)))}`;
